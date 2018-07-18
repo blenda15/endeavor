@@ -1,0 +1,23 @@
+Node reverse(Node head)
+   {	
+		if (head.next == null || head == null)
+			return head;
+		Node prev = head;
+		Node current = head.next;
+		Node forward = head.next.next;
+		while(forward != null){
+			current.next = prev;
+			prev = current;
+			current = forward;
+			forward = forward.next;
+		}
+		current.next = prev;
+		head.next = null;
+		return current;
+   }
+   
+   
+-------------------------------------------------------------
+
+Recursive
+

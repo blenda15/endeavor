@@ -1,0 +1,41 @@
+/*Given a String s and int r , first fill each character row wise and print column wise.
+for e.g. String s = “abcdefgh” and r = 3
+so filling column wise would give :
+a d g
+b e h
+c f
+
+and final ans would be adgbehcf.*/
+
+class Mango{
+    
+	void opsString(String s, int r)
+	{
+		int len = s.length();
+		int i = 0;
+		int count = 0;
+		while(count < r)
+		{
+			count++;
+			while(i <= len-1)
+			{
+				System.out.print(s.charAt(i));
+				i = i+r;
+			}
+			i = count;
+		}
+	}
+	
+	
+	
+	
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String s = sc.nextLine();
+		int r = sc.nextInt();
+		opsString(s, r);
+	}
+	
+	
+}

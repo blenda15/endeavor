@@ -1,0 +1,35 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	static char[][] keypad = {
+	    {},{},{'a','b','c'},{'d','e','f'},{'g','h','i'},{'j','k','l'},{'m','n','o'},
+	    {'p','q','r','s'},{'t','u','v'},{'w','x','y','z'}
+	};
+	public static void main (String[] args) {
+		Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+        while (t-- > 0) {
+            int n = s.nextInt();
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++) {
+                a[i] = s.nextInt();
+            }
+            char[] res = new char[n];
+            printWords(a,n,0,res);
+            System.out.println();
+        }
+	}
+	
+	private static void printWords(int[] a, int n, int i, char[] res) {
+	    if( i == n) {
+	        System.out.print(new String(res)+" ");
+	    } else {
+	        for( int k = 0 ; k < keypad[a[i]].length ; k++) {
+	            res[i] = keypad[a[i]][k];
+	            printWords(a,n,i+1,res);
+	        }
+	    }
+	}
+}

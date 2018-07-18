@@ -1,0 +1,32 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+
+	static boolean findNumber(int[][] arr, int x, int n, int m){
+		temp = arr[n][m];
+		if(temp == x)
+			return true;
+		if(temp > x){
+			if(m>0)
+				return findNumber(arr, x, n, m-1);
+		}
+		if(temp < x){
+			if(n< arr.length-1)
+				return findNumber(arr, x, n+1, m);
+		}
+		return false;
+	}
+
+	static boolean callingFindNumber(int[][] arr, int x){
+		int n = arr.length;
+		int m = (arr[0]).length;
+		int temp = arr[0][m-1];
+		return findNumber(arr, x, 0, m-1);
+	}
+
+	public static void main (String[] args) {
+		
+	}
+}

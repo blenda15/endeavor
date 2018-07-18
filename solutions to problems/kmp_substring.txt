@@ -1,0 +1,34 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG{
+
+	static int substringArray(String s){
+		int[] subArray = new int[s.length];
+		int i = 0;
+		int j = 1;
+		int max = 0;
+		subArray[0] = 0;
+		while(j < s.subArray.length){
+			if(s.charAt(i) != s.charAt(j)){
+				subArray[j] = 0;
+				j++;
+			}
+			if(s.charAt(i) == s.charAt(j)){
+				subArray[j] = i+1; //code for max length can be added here, with a separate variable
+				if(subArray[j] > max)
+					max = subArray[j];
+				i++;
+				j++;
+			}
+		}
+		return max;
+	}
+	
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+		String s = sc.nextString();
+		System.out.println(substringArray(s));
+	}
+}

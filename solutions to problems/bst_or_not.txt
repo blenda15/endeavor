@@ -1,0 +1,5 @@
+int isBST(Node root)  
+    {
+		Deque dq = new LinkedList<>();
+		
+    }

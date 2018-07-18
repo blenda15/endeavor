@@ -1,0 +1,83 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+
+	static int findElem(int[] arr, int x){
+	    int ans = 0;
+		for(int k=0; k< arr.length; k++){
+			if(arr[k] == x){
+			    ans= k;
+			    return k;
+			}
+				
+		}
+		return -1;
+	}
+	
+	static int repeatingElem(int[] arr){
+		int[] arr2 = arr;
+		Arrays.sort(arr2);
+		int i = 0;
+		int j = 1;
+		while(j < arr2.length){
+		    if (arr2[i] != arr2[j]) {
+		        i++;
+    			j++;
+		    }
+		    else
+		        break;
+		}
+		if(j < arr2.length){
+			if(arr2[i] == arr2[j]){
+			return 1+ findElem(arr, arr2[i]);
+			}
+		}
+		return -1;
+	}
+	
+	public static void main (String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int test = sc.nextInt();
+	    while(test-->0){
+	        int n = sc.nextInt();
+	        int[] arr = new int[n];
+	        for(int i =0; i<n; i++)
+	            arr[i] = sc.nextInt();
+	        System.out.println(repeatingElem(arr));
+	    }
+	
+	}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+second method
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+
+	static int findElem(int[] arr){
+		HashSet<Integer> s = new Hashset<>();
+		int min = -1;
+		for(int i = arr.length-1; i>-1; i--){
+			if(s.contains(arr[i]))
+				min=i;
+			else
+				s.add(arr[i]);
+		}
+		return min;
+	}
+
+	
+
+	public static void main (String[] args) {
+		
+	}
+}

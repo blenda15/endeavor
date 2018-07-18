@@ -1,0 +1,61 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    static void subarraySum(int[] arr, int sum){
+        
+    	if(sum == 0){
+    		for(int i =0; i<arr.length; i++){
+    			if(arr[i] == 0){
+    				System.out.println(i);
+    				break;
+    			}
+    		}
+    		System.out.println(-1);
+    	}
+    	else{
+    		int temp =0 ;
+    		int start=0;
+    		int end = 0;
+    		while(end<arr.length){
+    			 
+    			 if(temp < sum){
+    				temp+=arr[end];
+    				end++;
+    			 }
+    			 
+    			if(temp == sum){
+    			System.out.print(start + " ");
+    			System.out.println(end);
+    			break;
+    			}
+    			
+    			while(temp>sum && start >= 0){
+    				temp -=arr[start];
+    				start--;
+    			}
+    		}
+    		if(temp != sum)
+    		    System.out.println(-1);
+    		
+    	}
+    	
+    }
+    
+    
+	public static void main (String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int tests = sc.nextInt();
+	    while(tests-->0){
+	        int n = sc.nextInt();
+	        int sum = sc.nextInt();
+	        int[] arr = new int[n];
+	        for(int i=0; i< n; i++){
+	            arr[i]=sc.nextInt();
+	        }
+	        subarraySum(arr, sum);
+	    }
+	    
+	}
+}
