@@ -23,5 +23,8 @@ public class LRUCache extends LinkedHashMap<Integer, Integer>{
 0.75f is the load factor -The load factor represents at what level the HashMap capacity should be doubled.
 https://stackoverflow.com/questions/10901752/what-is-the-significance-of-load-factor-in-hashmap
 
-his override will allow the map to grow up to 100 entries and then delete the eldest entry each time a 
-new entry is added, maintaining a steady state of 100 entries.*/
+This override will allow the map to grow up to 100 entries and then delete the eldest entry each time a 
+new entry is added, maintaining a steady state of 100 entries.
+
+removeEldestEntry - This method is invoked by put and putAll after inserting a new entry into the map
+*/
